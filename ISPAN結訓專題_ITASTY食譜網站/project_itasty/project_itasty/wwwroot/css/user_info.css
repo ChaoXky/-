@@ -1,0 +1,432 @@
+.container_user {
+    width: 70%;
+}
+
+.area_user_info {
+    height: 230px;
+    border: #ccc9a1 1px solid;
+    border-top-style: none;
+    background: white;
+}
+
+.img_user_icon {
+    position: absolute;
+    top: 38px;
+    left: 12px;
+    width: 100px;
+    height: 100px;
+}
+
+.text_user_name {
+    position: absolute;
+    font-size: 25px;
+    left: 148px;
+    top: 48px;
+}
+
+.text_recipe {
+    position: absolute;
+    font-size: 14px;
+    left: 148px;
+    top: 81px;
+    color: #aba4a4;
+}
+
+.text_fan {
+    position: absolute;
+    font-size: 14px;
+    left: 225px;
+    top: 81px;
+    color: #aba4a4;
+}
+
+.text_user_info {
+    position: absolute;
+    font-size: 16px;
+    left: 130px;
+    top: 131px;
+    height: 48px;
+}
+
+.area_radio {
+    position: absolute;
+    top: 201px;
+}
+
+    .area_radio label {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+        .area_radio label:hover {
+            cursor: pointer;
+        }
+
+    .area_radio input:checked + label {
+        color: #e87543;
+    }
+
+.area_button {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+    .area_button button,
+    .area_button a,
+    .btn_new_recipe {
+        margin-right: 10px;
+        margin-left: 10px;
+        background-color: #000000;
+        border-radius: 15px;
+        color: #ffffff;
+        padding: 0px 10px;
+        text-decoration: none;
+        height: 28.88px;
+    }
+
+    .area_button a,
+    .btn_new_recipe {
+        text-align: center;
+        line-height: 28px;
+    }
+
+        .area_button a:hover, .btn_new_recipe:hover {
+            color: #ffffff;
+        }
+
+.btn_new_recipe {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.area_article {
+    margin-bottom: 200px;
+}
+
+    .area_article > form {
+        height: 200px;
+        border: #ccc9a1 1px solid;
+        border-top-style: none;
+        background-color: white;
+    }
+
+        .area_article > form:hover,
+        .area_article > form:hover > div:nth-child(2) {
+            cursor: pointer;
+            color: #e87543;
+        }
+
+        .area_article > form img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 250px;
+            height: 200px;
+        }
+
+        .area_article > form > div:nth-child(2) {
+            position: absolute;
+            top: 45px;
+            left: 270px;
+            font-size: 20px;
+            color: #212529;
+            text-decoration: none;
+        }
+
+        .area_article > form > div:nth-child(3) {
+            position: absolute;
+            top: 97px;
+            left: 270px;
+            font-size: 14px;
+            margin-right: 160px;
+            /* 字數超過四行不顯示 & 結尾改 ...  */
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            /* 行數 */
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+        .area_article > form > div:nth-child(4) {
+            position: absolute;
+            top: 70px;
+            left: 270px;
+        }
+
+        .area_article > form > div:nth-child(5) {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+            .area_article > form > div:nth-child(5) > div {
+                margin-right: 10px;
+                color: #aba4a4;
+            }
+
+            .area_article > form > div:nth-child(5) > i {
+                color: #aba4a4;
+            }
+
+.area_fan, .area_follow {
+    border: #ccc9a1 1px solid;
+    border-top-style: none;
+    margin-bottom: 200px;
+    background-color: white;
+}
+
+    .area_fan > :nth-child(1),
+    .area_follow > :nth-child(1) {
+        height: 50px;
+    }
+
+        .area_fan > :nth-child(1) > div,
+        .area_follow > :nth-child(1) > div {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 16px;
+        }
+
+    .area_fan > :nth-child(2) > div,
+    .area_follow > :nth-child(2) > div {
+        /* height: 130px; */
+        border-top: #7c7777 1px dashed;
+    }
+
+        .area_fan > :nth-child(2) > div > img,
+        .area_follow > :nth-child(2) > div > img {
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+        }
+
+        .area_fan > :nth-child(2) > div > :nth-child(2),
+        .area_follow > :nth-child(2) > div > :nth-child(2) {
+            position: absolute;
+            top: 15px;
+            left: 75px;
+            font-size: 16px;
+        }
+
+            .area_fan > :nth-child(2) > div > :nth-child(2) a,
+            .area_follow > :nth-child(2) > div > :nth-child(2) a {
+                font-size: 16px;
+                color: #212529;
+                text-decoration: none;
+            }
+
+                .area_fan > :nth-child(2) > div > :nth-child(2) a:hover,
+                .area_follow > :nth-child(2) > div > :nth-child(2) a:hover {
+                    font-size: 16px;
+                    color: #e87543;
+                    text-decoration: underline;
+                }
+
+        .area_fan > :nth-child(2) > div > :nth-child(3),
+        .area_follow > :nth-child(2) > div > :nth-child(3) {
+            position: absolute;
+            top: 44px;
+            left: 75px;
+        }
+
+            .area_fan > :nth-child(2) > div > :nth-child(3) > div,
+            .area_follow > :nth-child(2) > div > :nth-child(3) > div {
+                color: #7c7777;
+                font-size: 12;
+                margin-right: 20px;
+            }
+
+        .area_fan > :nth-child(2) > div > :nth-child(5),
+        .area_follow > :nth-child(2) > div > :nth-child(5) {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            background-color: #000000;
+            border-radius: 15px;
+            color: #ffffff;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .area_fan > :nth-child(2) > div > :nth-child(4),
+        .area_follow > :nth-child(2) > div > :nth-child(4) {
+            position: relative;
+            font-size: 16px;
+            margin-left: 75px;
+            margin-right: 100px;
+            margin-top: 65px;
+            margin-bottom: 10px;
+            /* 字數超過四行不顯示 & 結尾改 ...  */
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* 行數 */
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+    .area_fan > :nth-child(3),
+    .area_follow > :nth-child(3) {
+        /* height: 130px; */
+        border-top: #7c7777 1px dashed;
+        padding-top: 14px;
+    }
+
+        .area_fan > :nth-child(3) > nav,
+        .area_follow > :nth-child(3) > nav {
+            margin-right: 20px;
+        }
+
+.area_edit .btn_close, .area_select_recipe .btn_close {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.area_edit .btn_save,
+.area_edit .btn_save_banner,
+.area_edit .btn_save_icon,
+.area_select_recipe .btn_save {
+    background-color: #000000;
+    border-radius: 15px;
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.area_edit .modal-body > div > img {
+    width: 100%;
+}
+
+.area_edit .modal-body > div > button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.area_edit .modal-body > div:nth-child(2) {
+    margin-top: 10px;
+}
+
+    .area_edit .modal-body > div:nth-child(2) > img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .area_edit .modal-body > div:nth-child(2) > button {
+        position: absolute;
+        top: 50px;
+        left: 65px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+    }
+
+.area_edit .modal-body > div:nth-child(3) {
+    margin-top: 10px;
+}
+
+    .area_edit .modal-body > div:nth-child(3) > label {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+.area_edit .modal-body > div:nth-child(4) {
+    margin-top: 10px;
+}
+
+    .area_edit .modal-body > div:nth-child(4) > label {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+.area_edit .btn_back {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    border-style: none;
+    background: none;
+}
+
+    .area_edit .btn_back i {
+        font-size: 16px;
+    }
+
+.area_select_recipe label:has(input:checked) {
+    background-color: #e87543;
+}
+
+.list_analyze_recipe > p {
+    margin-left: 83px;
+}
+
+.list_analyze_recipe button {
+    background-color: #00000000;
+    border-style: none;
+}
+
+    .list_analyze_recipe button:hover {
+        color: #e87543;
+        cursor: pointer;
+    }
+
+.area_analyze {
+    border: #ccc9a1 1px solid;
+    border-top-style: none;
+    margin-bottom: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+}
+
+    .area_analyze p {
+        margin-bottom: 5px;
+    }
+
+    .area_analyze > div > label {
+        min-width: 60px;
+        text-align: center;
+    }
+
+    .area_analyze label:has(input:checked) {
+        color: #e87543;
+    }
+
+    .area_analyze label:hover {
+        cursor: pointer;
+    }
+
+.area_analyze_recipe > p > button,
+#btn_analyze {
+    background-color: #000000;
+    border-radius: 15px;
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.area_select_time {
+    margin-left: 83px;
+}
+
+    .area_select_time input:checked + label {
+        color: #e87543;
+    }

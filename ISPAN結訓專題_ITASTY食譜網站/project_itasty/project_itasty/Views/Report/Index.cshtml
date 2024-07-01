@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "iTasty | 檢舉頁";
+    Layout = "~/Views/Shared/_itastyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        .myContainer {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            border: 1px solid black;
+            padding: 20px;
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+            padding: 5px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: lightgray;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="myContainer">
+        <div class="container">
+            <h1>iTasty 檢舉回報</h1>
+            <form id="reportForm">
+                <label for="account">帳號:</label>
+                <input type="text" id="account" name="account" value="@ViewBag.reportUserName" disabled>
+
+                <input type="hidden" id="recipedIdOrCommentId" name="recipedIdOrCommentId" value="@ViewBag.ID">
+                <input type="hidden" id="reportType" name="reportType" value="@ViewBag.Type">
+                <input type="hidden" name="reportUserID" id="reportUserID" value="@ViewBag.reportUserID" />
+
+                <label for="notes">被檢舉的 食譜/留言:</label>
+                <input type="text" id="notes" name="notes" value="@ViewBag.Notes" disabled>
+
+                <label for="reason">檢舉理由:</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#reportForm').on('submit', function (event) {
+                event.preventDefault();
+
+                const data = {
+                    ReportReason: $('#reason').val(),
+                    ReportedUserId: parseInt($('#recipedIdOrCommentId').val()),
+                    RecipedIdOrCommentId: parseInt($('#recipedIdOrCommentId').val()),
+                    ReportType: parseInt($('#reportType').val()),
+                    ReportStatus: false,
+                    reportUserID: parseInt($('#reportUserID').val())
+                };
+
+                $.ajax({
+                    url: '/api/ReportAPI',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function (response) {
+                        console.log(response);
+                        alert('檢舉已成功提交！');
+                    },
+                    error: function (xhr, status, error) {
+                        let errorMessage = '錯誤: ' + xhr.responseText;
+                        if (xhr.status === 400) {
+                            try {
+                                let response = JSON.parse(xhr.responseText);
+                                if (response.errors && Array.isArray(response.errors)) {
+                                    errorMessage = '無效的輸入: ' + response.errors.join(', ');
+                                } else {
+                                    errorMessage = '無效的輸入: ' + JSON.stringify(response.errors);
+                                }
+                            } catch (e) {
+                                errorMessage = '無效的輸入，且解析錯誤信息失敗。';
+                            }
+                        } else if (xhr.status === 500) {
+                            errorMessage = '伺服器內部錯誤，請稍後再試。';
+                        }
+                        alert(errorMessage);
+                        console.log(xhr);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

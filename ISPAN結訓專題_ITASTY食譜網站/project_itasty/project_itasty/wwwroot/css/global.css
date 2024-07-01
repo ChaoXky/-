@@ -1,0 +1,437 @@
+/* 下面是全域設定檔的css(一定要加)-------------------------------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    font-family: "Noto Serif TC", serif;
+    font-family: "Stardos Stencil", system-ui;
+    font-style: normal;
+    font-weight: bold;
+}
+
+body {
+    clear: both;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(245, 245, 245);
+    background-image: url("../img/pexels-karolina-grabowska-4705933.jpg");
+    /*backdrop-filter: blur(5px);*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+/* 下面是header的css-------------------------------------------------------------------------------------------------- */
+header {
+    width: 100%;
+    margin: auto;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+    header::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+.header-left {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    width: 65%;
+    align-items: left;
+    /* display: flex; */
+}
+
+    .header-left > span,
+    .header-left > a,
+    .header-left > a > span {
+        width: 84px;
+        height: 60px;
+        line-height: 60px;
+        margin-left: 12px;
+        font-size: 1rem;
+        cursor: pointer;
+        color: rgb(30, 30, 30);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .header-left > span:hover,
+        .header-left > a:hover > span {
+            background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#da1b60));
+            background: linear-gradient(to right, #a53f2b, #280004);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+.header-left-img {
+    /* width: 100%;
+    display: block;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    object-fit: contain; */
+    width: 170px;
+    height: 90%;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .header-left-img > a {
+        width: inherit;
+        height:inherit;
+        background-image: url("/img/logo_text.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+.header-middle {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    width: 0%;
+}
+
+.header-right {
+    /* padding-left: 30%; */
+    background-color: rgb(255, 255, 255);
+    padding-right: 43px;
+    width: 35%;
+    justify-content: flex-end;
+}
+
+.loginsignbtn {
+    display: flex;
+    width: 130px;
+}
+
+.login {
+    width: 40px;
+    margin-right: 12px;
+    cursor: pointer;
+    color: #111111;
+}
+
+    .login:hover {
+        background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#da1b60));
+        background: linear-gradient(to right, #a53f2b, #280004);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.sign {
+    width: 90px;
+    height: 40px;
+    background: linear-gradient(to right, #a53f2b, #280004);
+    align-items: center;
+    text-align: center;
+    line-height: 40px;
+    margin: auto;
+    border-radius: 4px;
+    color: aliceblue;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .sign:hover {
+        color: aliceblue;
+    }
+
+.spacebar {
+    width: 1px;
+    height: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 14px;
+    background-color: rgb(200, 200, 200);
+}
+
+.shoppingcart {
+    width: 40px;
+    height: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+    .shoppingcart:hover {
+        background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#da1b60));
+        background: linear-gradient(to right, #a53f2b, #280004);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.profile {
+    width: 40px;
+    height: 60px;
+    cursor: pointer;
+   
+}
+  
+
+    .profile:hover {
+        background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#da1b60));
+        background: linear-gradient(to right, #a53f2b, #280004);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+       
+    }
+
+.header-second {
+    width: 100%;
+    height: 60px;
+    background-color: #FFFFFF;
+}
+
+.nav-left {
+    position: relative;
+    width: 10%;
+    display: inline-block;
+    cursor: pointer;
+    margin: auto;
+    padding-left: 2%;
+    /* background-color: #a93635; */
+}
+
+.left-title {
+    position: absolute;
+    left: 0px;
+    background-color: #FFFFFF;
+    z-index: 999;
+    display: none;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+.left-title-bar {
+    width: 140px;
+    margin: 0px;
+    text-align: center;
+}
+
+.bababa {
+    height: 1px;
+    width: 120px;
+    margin: auto;
+    background-color: rgb(241, 241, 238);
+}
+
+.left-title a {
+    text-decoration: none;
+    color: #111111;
+}
+
+    .left-title a:hover {
+        color: rgb(232, 117, 67);
+    }
+
+.nav-middle {
+    width: 80%;
+}
+
+.nav-middle-img {
+    width: 170px;
+    height: 90%;
+    margin: auto;
+    margin-top: 10px;
+    background-image: url("../img/logo_text.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
+}
+
+.nav-right {
+    position: relative;
+    width: 10%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.nav-profile-icon {
+    width: 100%;
+    height: 30px;
+    text-align: right;
+    margin-top: 15px;
+    padding-right: 15px;
+}
+
+.right-title-bar {
+    width: 160px;
+    height: 55px;
+    line-height: 40px;
+    margin: auto;
+    padding: 8px;
+    text-align: center;
+    align-items: center;
+}
+
+.right-title p:nth-child(3) a,
+.right-title p:nth-child(5) a {
+    text-decoration: none;
+    color: #111111;
+}
+
+    .right-title p:nth-child(3) a:hover,
+    .right-title p:nth-child(5) a:hover {
+        color: rgb(232, 117, 67);
+    }
+
+.right-title {
+    position: absolute;
+    right: 0px;
+    top: 60px;
+    background-color: #FFFFFF;
+    z-index: 999;
+    display: none;
+}
+
+/* 下面是container的css-------------------------------------------------------------------------------------------------- */
+
+/* 下面是footer的css-------------------------------------------------------------------------------------------------- */
+footer {
+    clear: both;
+    display: block;
+    content: " ";
+}
+
+.footer-header {
+    font-size: 1vw+0.5rem;
+    height: 80px;
+    line-height: 80px;
+    font-weight: 600;
+    border-bottom: rgb(241, 241, 238) 1px solid;
+    justify-content: center;
+}
+
+.footer-header-top {
+    width: 440px;
+    display: flex;
+}
+
+.footer-header-text {
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    width: 380px;
+}
+
+.footer-header-button {
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    width: 60px;
+    text-align: center;
+    background-color: rgb(79, 169, 112);
+    color: #FFFFFF;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.footer-class {
+    max-width: 1536px;
+    height: auto;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+.footer-link {
+    /* width: 14%; */
+    padding: 24px 16px;
+    padding-left: 10%;
+    transition: all 0.3s;
+}
+
+    .footer-link a {
+        color: #787878;
+        text-decoration: none;
+        font-size: 0.8rem;
+    }
+
+        .footer-link a:hover {
+            background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#da1b60));
+            background: linear-gradient(to right, #a53f2b, #280004);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+.link-label {
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.footer-link ul {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1rem;
+    color: #b8b8b8;
+}
+
+    .footer-link ul > li {
+        list-style: none;
+        margin-bottom: 5px;
+        transition: all 0.3s;
+    }
+
+.footer-logo {
+    /* width: 18%; */
+    background-image: url("../img/logo_long.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 300px;
+    padding-left: 5%;
+}
+
+.footer-space {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(241, 241, 238);
+}
+
+.footer-footer {
+    font-size: 1rem;
+    /* padding-left: 40%; */
+    height: 80px;
+    line-height: 80px;
+    font-weight: 600;
+    margin: auto;
+    margin-left: 20px;
+    width: 556px;
+    color: #c8c8c8;
+    /* border-top: rgb(241, 241, 238) 1px solid; */
+}
+
+/* -------------------------------------------------------------------------------------------------- */
