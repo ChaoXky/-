@@ -555,7 +555,21 @@ $(document).ready(function () {
     $('#pdf').on('click', function () {
         console.log(this);
         window.jsPDF = window.jspdf.jsPDF;
-        $("#example").tableHTMLExport({ type: 'pdf', filename: 'sample.pdf' });
+        //$("#example").tableHTMLExport({ type: 'pdf', filename: 'sample.pdf' });
+
+        const doc = new jsPDF();
+
+        doc.addFont('SourceHanSans-Normal.ttf', 'SourceHanSans-Normal', 'normal');
+        doc.autoTable({
+            html: '#example',
+            styles: {
+                font: "SourceHanSans-Normal",
+            }
+        })
+        doc.save('sample.pdf');
+
+        console.log('Show all font in jsPDF', doc.getFontList());
+
     });
 });
 
