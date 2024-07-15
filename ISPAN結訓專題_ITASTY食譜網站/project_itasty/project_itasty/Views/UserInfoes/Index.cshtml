@@ -16,9 +16,12 @@
 @section MyHeadScripts {
 	<script src="~/js/croppie.js"></script>
 	<script src="~/js/Chart.min.js"></script>
+	<link rel="stylesheet" href="~/css/user_info.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="~/js/jspdf.plugin.autotable.min.js"></script>
+	<script src="~/js/tableHTMLExport.js"></script>
 	<link rel="stylesheet" href="~/css/croppie.css">
 	<script src="~/js/user_info.js"></script>
-	<link rel="stylesheet" href="~/css/user_info.css">
 
 }
 
@@ -147,21 +150,26 @@
 			@{
 				foreach (var i in ViewBag.recipe)
 				{
-					<form asp-action="Index" asp-controller="RecipePage" method="post" target="_blank" class="position-relative px-0" onclick="document.getElementById('goto_@i.RecipeId').click()">
-						<img src="data:image/jpg;base64, @((i.RecipeCoverImage != null)?Convert.ToBase64String(i.RecipeCoverImage):"")" @((i.RecipeCoverImage == null) ? "hidden" : "")>
-						<div>@i.RecipeName</div>
-						<div>
-							@i.RecipeIntroduction
-						</div>
-						<div>@(i.LastModifiedDate.Month)月@(i.LastModifiedDate.Day)日</div>
-						<div>
-							<i class="fa-regular fa-eye"></i>
-							<div class="d-inline">@((int?)ViewData[$"recipe_view_{i.RecipeId}"])</div>
-							<i class="fa-solid fa-tag"></i>
-							<div class="d-inline">@i.Favorites</div>
-						</div>
-						<input type="submit" id="goto_@i.RecipeId" name="recipe_id" value=@i.RecipeId class="d-none" />
-					</form>
+					<div class="position-relative px-0">
+						<form asp-action="Index" asp-controller="RecipePage" method="post" target="_blank" class="position-relative px-0" onclick="document.getElementById('goto_@i.RecipeId').click()">
+							<img src="data:image/jpg;base64, @((i.RecipeCoverImage != null)?Convert.ToBase64String(i.RecipeCoverImage):"")" @((i.RecipeCoverImage == null) ? "hidden" : "")>
+							<div>@i.RecipeName</div>
+							<div>
+								@i.RecipeIntroduction
+							</div>
+							<div>@(i.LastModifiedDate.Month)月@(i.LastModifiedDate.Day)日</div>
+							<div>
+								<i class="fa-regular fa-eye"></i>
+								<div class="d-inline">@((int?)ViewData[$"recipe_view_{i.RecipeId}"])</div>
+								<i class="fa-solid fa-tag"></i>
+								<div class="d-inline">@i.Favorites</div>
+							</div>
+							<input type="submit" id="goto_@i.RecipeId" name="recipe_id" value=@i.RecipeId class="d-none" />
+						</form>
+						<button class="btn_cal_show" data-bs-toggle="modal" data-bs-target="#modal_recipe_cal" onclick="get_recipe_cal(@i.RecipeId)">
+							材料
+						</button>
+					</div>
 				}
 			}
 		</div>
@@ -472,6 +480,52 @@
 					}
 
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="area_recipe_cal modal fade" id="modal_recipe_cal" tabindex="-1" aria-labelledby="label_recipe_cal" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn_close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<h5 class="text_title modal-title d-inline me-auto" id="label_recipe_cal">食譜材料</h5>
+					<button class="btn_save" onclick="" data-bs-dismiss="modal">comfirm</button>
+				</div>
+				<div class="modal-body row">
+					<table class="table" id="example">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">First</th>
+								<th scope="col">Last</th>
+								<th scope="col">Handle</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td scope="row">1</td>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>mdo</td>
+							</tr>
+							<tr>
+								<td scope="row">2</td>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>fat</td>
+							</tr>
+							<tr>
+								<td scope="row">3</td>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>twitter</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<button id="json" class="btn btn-primary">导出JSON</button>
+				<button id="csv" class="btn btn-info">导出CSV</button>
+				<button id="pdf" class="btn btn-danger">导出PDF</button>
 			</div>
 		</div>
 	</div>

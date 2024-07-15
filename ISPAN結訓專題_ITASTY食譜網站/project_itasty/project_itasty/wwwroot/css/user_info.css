@@ -106,70 +106,90 @@
     margin-bottom: 200px;
 }
 
-    .area_article > form {
+    .area_article > div {
         height: 200px;
         border: #ccc9a1 1px solid;
         border-top-style: none;
         background-color: white;
     }
 
-        .area_article > form:hover,
-        .area_article > form:hover > div:nth-child(2) {
-            cursor: pointer;
-            color: #e87543;
-        }
-
-        .area_article > form img {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 250px;
+        .area_article > div > form {
             height: 200px;
         }
 
-        .area_article > form > div:nth-child(2) {
-            position: absolute;
-            top: 45px;
-            left: 270px;
-            font-size: 20px;
-            color: #212529;
-            text-decoration: none;
-        }
-
-        .area_article > form > div:nth-child(3) {
-            position: absolute;
-            top: 97px;
-            left: 270px;
-            font-size: 14px;
-            margin-right: 160px;
-            /* 字數超過四行不顯示 & 結尾改 ...  */
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            /* 行數 */
-            -webkit-box-orient: vertical;
-            white-space: normal;
-        }
-
-        .area_article > form > div:nth-child(4) {
-            position: absolute;
-            top: 70px;
-            left: 270px;
-        }
-
-        .area_article > form > div:nth-child(5) {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-        }
-
-            .area_article > form > div:nth-child(5) > div {
-                margin-right: 10px;
-                color: #aba4a4;
+            .area_article > div > form:hover,
+            .area_article > div > form:hover > div:nth-child(2) {
+                cursor: pointer;
+                color: #e87543;
             }
 
-            .area_article > form > div:nth-child(5) > i {
-                color: #aba4a4;
+            .area_article > div > form img {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 250px;
+                height: 200px;
+            }
+
+            .area_article > div > form > div:nth-child(2) {
+                position: absolute;
+                top: 45px;
+                left: 270px;
+                font-size: 20px;
+                color: #212529;
+                text-decoration: none;
+            }
+
+            .area_article > div > form > div:nth-child(3) {
+                position: absolute;
+                top: 97px;
+                left: 270px;
+                font-size: 14px;
+                margin-right: 160px;
+                /* 字數超過四行不顯示 & 結尾改 ...  */
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                /* 行數 */
+                -webkit-box-orient: vertical;
+                white-space: normal;
+            }
+
+            .area_article > div > form > div:nth-child(4) {
+                position: absolute;
+                top: 70px;
+                left: 270px;
+            }
+
+            .area_article > div > form > div:nth-child(5) {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+
+                .area_article > div > form > div:nth-child(5) > div {
+                    margin-right: 10px;
+                    color: #aba4a4;
+                }
+
+                .area_article > div > form > div:nth-child(5) > i {
+                    color: #aba4a4;
+                }
+
+        .area_article > div > .btn_cal_show {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background-color: #000000;
+            border-radius: 15px;
+            color: #ffffff;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+            .area_article > div > .btn_cal_show:hover {
+                color: #e87543;
+                /*border-color: #e87543;*/
             }
 
 .area_fan, .area_follow {
@@ -284,7 +304,9 @@
             margin-right: 20px;
         }
 
-.area_edit .btn_close, .area_select_recipe .btn_close {
+.area_edit .btn_close,
+.area_select_recipe .btn_close,
+.area_recipe_cal .btn_close {
     width: 20px;
     height: 20px;
     margin-right: 10px;
@@ -297,7 +319,8 @@
 .area_edit .btn_save,
 .area_edit .btn_save_banner,
 .area_edit .btn_save_icon,
-.area_select_recipe .btn_save {
+.area_select_recipe .btn_save,
+.area_recipe_cal .btn_save {
     background-color: #000000;
     border-radius: 15px;
     color: #ffffff;

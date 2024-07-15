@@ -40,6 +40,24 @@ namespace project_itasty.Controllers
 			return await query.ToListAsync();
 		}
 
+		[HttpGet("recipe/{id}")]
+		public async Task<ActionResult<IEnumerable<object>>> GetRecipe(int id)
+		{
+			var query = from rt in _context.RecipeTables
+						where rt.RecipeId == id
+						join it in _context.IngredientsTables on rt.RecipeId equals it.RecipeId
+						join igd in _context.IngredientDetails on it.IngredientsId equals igd.IngredientId
+						select new
+						{
+							recipename = rt.RecipeName,
+							materialname = it.TitleName,
+							ingredientsname = igd.IngredientName,
+							unitofweight = it.IngredientsNumber.ToString() + it.IngredientsUnit,
+							kcalg = igd.Kcalg,
+						};
+			return await query.ToListAsync();
+		}
+
 		[HttpPost]
 		public async Task<ActionResult> UpdateUser(IFormFile photo, IFormFile banner, [FromForm] string name, [FromForm] string id, [FromForm] string intro = "")
 		{

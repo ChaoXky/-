@@ -544,6 +544,19 @@ $(document).ready(function () {
         }
         set_alanyze_canvas(datasets, alanyze_x);
     });
+    $('#json').on('click', function () {
+        console.log(this);
+        $("#example").tableHTMLExport({ type: 'json', filename: 'sample.json' });
+    });
+    $('#csv').on('click', function () {
+        console.log(this);
+        $("#example").tableHTMLExport({ type: 'csv', filename: 'sample.csv' });
+    });
+    $('#pdf').on('click', function () {
+        console.log(this);
+        window.jsPDF = window.jspdf.jsPDF;
+        $("#example").tableHTMLExport({ type: 'pdf', filename: 'sample.pdf' });
+    });
 });
 
 //發送使用者資訊更新
@@ -911,6 +924,47 @@ function get_fan(num_page, user_id) {
 				</div >
                 `);
             }
+        },
+        error: function (xmlhttpreq, textstatus) {
+            console.log(xmlhttpreq);
+            console.log(textstatus);
+        }
+    });
+}
+function get_recipe_cal(recipe_id) {
+    $.ajax({
+        type: "get",
+        url: `/api/userapi/recipe/${recipe_id}`,
+        success: function (e) {
+            let str_table = `
+            <table class="table" id="example">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Recipe</th>
+						<th scope="col">Material</th>
+						<th scope="col">Ingredient</th>
+						<th scope="col">Unit</th>
+						<th scope="col">kcalg</th>
+					</tr>
+				</thead>
+				<tbody>
+            `;
+            for (var i of Array.from(e)) {
+                str_table += `
+                <tr>
+					<td>${i.recipename}</td>
+					<td>${i.materialname}</td>
+					<td>${i.ingredientsname}</td>
+					<td>${i.unitofweight}</td>
+					<td>${i.kcalg}</td>
+				</tr>
+                `;
+            }
+            str_table += `
+                </tbody>
+			</table>
+            `;
+            $('.area_recipe_cal .modal-body').html(str_table);
         },
         error: function (xmlhttpreq, textstatus) {
             console.log(xmlhttpreq);
